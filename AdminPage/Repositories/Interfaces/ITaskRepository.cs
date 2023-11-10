@@ -1,0 +1,13 @@
+﻿using Task = AdminPage.Entities.Task;
+
+namespace AdminPage.Repositories.Interfaces
+{
+	public interface ITaskRepository
+	{
+		Task<List<Task>> GetTaskList();
+		Task<Task> Create(Task task);
+		Task<Task> Update(Task task);
+		Task<Task> Delete(Task task);
+		Task<Task> GetById(Guid id);
+	}
+}

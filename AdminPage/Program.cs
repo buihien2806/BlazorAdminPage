@@ -1,4 +1,6 @@
 using AdminPage.EF;
+using AdminPage.Repositories.Interfaces;
+using AdminPage.Repositories.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,9 @@ option.UseSqlServer(builder.Configuration.GetConnectionString("MainDBDatabase"))
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+//REGISTER REPOSITORY
+builder.Services.AddTransient<ITaskRepository, TaskRepository>();
 
 var app = builder.Build();
 

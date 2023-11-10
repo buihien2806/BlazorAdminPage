@@ -1,4 +1,4 @@
-﻿namespace AdminPage.Enums
+﻿namespace AdminPage.Models.Enums
 {
 	public enum Status
 	{
