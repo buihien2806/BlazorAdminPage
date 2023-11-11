@@ -41,6 +41,8 @@ namespace AdminPage.Repositories.Services
 			{
 				Id= x.Id,
 				Name= x.Name,
+				Priority= x.Priority,
+				Status= x.Status,
 				CreatedDate= x.CreatedDate
 			}).ToListAsync();
 		}

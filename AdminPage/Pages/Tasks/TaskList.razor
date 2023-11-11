@@ -1,13 +1,14 @@
 ﻿@page "/tasklist"
+@using AdminPage.Pages.Components
 
 <h3>TaskList</h3>
-@if(taskView == null)
+@if (taskView == null)
 {
-	<div>Loading</div>
+	<LoadingIndicator></LoadingIndicator>
 }
 else
 {
-		<table class="table table-bordered">
+	<table class="table table-bordered">
 		<thead class="table-light">
 			<tr>
 				<th>Name</th>
@@ -21,23 +22,24 @@ else
 		<tbody>
 			@foreach (var item in taskView)
 			{
-					<tr>
-						<td>@item.Name</td>
-						<td></td>
-						<td></td>
-						<td>@item.CreatedDate</td>
-						<td></td>
-						<td>
-							<a href="/tasks/taskdetail/@item.Id" class="btn btn-primary">Detail</a>
-							<a href="/tasks/taskedit/@item.Id" class="btn btn-warning">Edit</a>
+				<tr>
+					<td>@item.Name</td>
+					<td><PriorityLabel Priority="item.Priority"></PriorityLabel></td>
+					<td></td>
+					<td>@item.CreatedDate</td>
+					<td><StatusLabel Status="item.Status"></StatusLabel></td>
+					<td>
+						<a href="/tasks/taskdetail/@item.Id" class="btn btn-primary">Detail</a>
+						<a href="/tasks/taskedit/@item.Id" class="btn btn-warning">Edit</a>
 						@*<button class="btn btn-danger" @onclick="()=> OnDeleteTask(item.Id)">Delete</button>*@
-						</td>
-					</tr>
+					</td>
+				</tr>
 			}
 		</tbody>
 		<tfoot>
 			@*		<Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage"></Pagination>
-*@	</tfoot>
+		*@
+		</tfoot>
 	</table>
 }
 

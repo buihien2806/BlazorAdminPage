@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPage", "AdminPage\AdminPage.csproj", "{777A1881-D9C6-4BE7-8910-F43A8989B4A3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdminPage.Models", "AdminPage.Models\AdminPage.Models.csproj", "{D7FF09BC-D8A5-49A5-9B40-A1C8D7501D5B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AdminPage.Models", "AdminPage.Models\AdminPage.Models.csproj", "{D7FF09BC-D8A5-49A5-9B40-A1C8D7501D5B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
