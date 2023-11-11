@@ -1,8 +1,44 @@
 ﻿@page "/tasklist"
 
 <h3>TaskList</h3>
-
-
-@code {
-
+@if(taskView == null)
+{
+	<div>Loading</div>
 }
+else
+{
+		<table class="table table-bordered">
+		<thead class="table-light">
+			<tr>
+				<th>Name</th>
+				<th>Priority</th>
+				<th>Assignee</th>
+				<th>Date</th>
+				<th>Status</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var item in taskView)
+			{
+					<tr>
+						<td>@item.Name</td>
+						<td></td>
+						<td></td>
+						<td>@item.CreatedDate</td>
+						<td></td>
+						<td>
+							<a href="/tasks/taskdetail/@item.Id" class="btn btn-primary">Detail</a>
+							<a href="/tasks/taskedit/@item.Id" class="btn btn-warning">Edit</a>
+						@*<button class="btn btn-danger" @onclick="()=> OnDeleteTask(item.Id)">Delete</button>*@
+						</td>
+					</tr>
+			}
+		</tbody>
+		<tfoot>
+			@*		<Pagination MetaData="MetaData" Spread="2" SelectedPage="SelectedPage"></Pagination>
+*@	</tfoot>
+	</table>
+}
+
+

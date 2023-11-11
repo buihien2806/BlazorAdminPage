@@ -1,6 +1,8 @@
 ﻿using AdminPage.EF;
+using AdminPage.Models.Task;
 using AdminPage.Repositories.Interfaces;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.InteropServices;
 using Task = AdminPage.Entities.Task;
 
 namespace AdminPage.Repositories.Services
@@ -31,9 +33,16 @@ namespace AdminPage.Repositories.Services
 			throw new NotImplementedException();
 		}
 
-		public async Task<List<Task>> GetTaskList()
+		public async Task<List<TaskView>> GetTaskList()
 		{
-			return await _mainContext.Tasks.ToListAsync();
+			var query = from t in _mainContext.Tasks
+					   select t;
+			return await query.Select(x => new TaskView()
+			{
+				Id= x.Id,
+				Name= x.Name,
+				CreatedDate= x.CreatedDate
+			}).ToListAsync();
 		}
 
 		public async Task<Task> Update(Task task)
